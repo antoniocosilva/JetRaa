@@ -37,7 +37,7 @@ namespace Rivet {
             book(jetPt,"pp_pt",10,0.,10.);
             book(sow,"pp_sow");
         }
-        else if(collSystem == "PBPB")
+        else if(collSystem == "PPMOD")
         {
             book(jetPt,"PbPb_pt",10,0.,10.);
             book(sow,"PbPb_sow");
