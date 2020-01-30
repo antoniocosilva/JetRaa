@@ -1,0 +1,27 @@
+Name: Jet_Raa_Analysis
+Year: <Insert year of publication>
+Summary: <Inclusive charged jet nuclear modification factor>
+Experiment: <Insert the experiment name>
+Collider: <Insert the collider name>
+InspireID: <Insert the Inspire ID>
+Status: UNVALIDATED
+Authors:
+ - Antonio C. O. da Silva <antonio.silva@cern.ch>
+#References:
+#- '<Example: Eur.Phys.J. C76 (2016) no.7, 392>'
+#- '<Example: DOI:10.1140/epjc/s10052-016-4184-8>'
+#- '<Example: arXiv:1605.03814>'
+RunInfo: <Describe event types, cuts, and other general generator config tips.>
+Beams: [p+, p+]
+Energies: [2760.0]
+Options:
+ - coll=PP,PPMOD
+#Luminosity_fb: <Insert integrated luminosity, in inverse fb>
+Description:
+  '<Jet nuclear modification factor>'
+Keywords: []
+BibKey: 
+BibTeX: ''
+ToDo:
+ - Implement the analysis, test it, remove this ToDo, and mark as VALIDATED :-)
+
