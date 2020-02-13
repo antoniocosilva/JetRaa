@@ -49,9 +49,6 @@ namespace Rivet {
         const FinalState fs(Cuts::pT > 150*MeV && Cuts::abseta < 0.9 && Cuts::abscharge > 0);
         declare(fs,"fs");
         
-        const ALICE::PrimaryParticles app(Cuts::pT > 150*MeV && Cuts::abseta < 0.9 && Cuts::abscharge > 0);
-        declare(app,"app");
-        
         fastjet::AreaType fjAreaType = fastjet::active_area_explicit_ghosts;
         //fastjet::GhostedAreaSpec(MaxRap, NGhostRepeats, GhostArea, GridScatter, KtScatter, MeanGhostKt);
         fastjet::GhostedAreaSpec fjGhostAreaSpec = fastjet::GhostedAreaSpec(1., 1, 0.005, 1., 0.1, 1e-100);
@@ -66,13 +63,9 @@ namespace Rivet {
     void analyze(const Event& event) {
         
         sow->fill();
-                
-        ALICE::PrimaryParticles app = applyProjection<ALICE::PrimaryParticles>(event,"app");
-        Particles particles = app.particles();
         
         FastJets fj = applyProjection<FastJets>(event, "jets");
-        if(collSystem == "PP") fj.calc(particles);
-        Jets jets = fj.jetsByPt(Cuts::abseta < 0.5 && Cuts::pT > 0.15*GeV);
+        Jets jets = fj.jetsByPt(Cuts::abseta < (0.9-jetR) && Cuts::pT > 0.15*GeV);
         
         for(Jet& jet : jets)
         {
